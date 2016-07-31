@@ -41,6 +41,6 @@ controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot
     })
 });
 
-controller.hears('cola', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    bot.reply(message, coke.get());
+controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function (bot, message) {
+    bot.reply(message, 'まっち');
 });
