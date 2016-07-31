@@ -19,6 +19,6 @@ var bot = controller.spawn({
 }).startRTM();
 
 // say hi (test)
-controller.hears('hi', ['direct_message', 'direct_message', 'mention'], function (bot, message) {
+controller.hears('hi', ['direct_message', 'mention', 'ambient'], function (bot, message) {
     bot.reply(message, 'hi');
 });
