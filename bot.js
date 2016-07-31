@@ -31,12 +31,12 @@ controller.hears('get', ['direct_message', 'mention', 'ambient'], function (bot,
 
 controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
     var pointcard_number = '0001323337';
-    var res = coke.get(pointcard_number).then(function onFuifilled(value) {
-        return value;
+    coke.get(pointcard_number).then(function onFuifilled(value) {
+        bot.reply(message, value);
     }).catch(function onRejected(error) {
-        return error;
+        bot.reply(message, error);
     })
-    bot.reply(message, res);
+    // bot.reply(message, res);
 });
 
 controller.hears('cola', ['direct_message', 'mention', 'ambient'], function (bot, message) {
