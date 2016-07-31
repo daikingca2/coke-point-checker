@@ -1,6 +1,6 @@
 // use botkit
 var botkit = require('botkit');
-// var os = require('os');
+var coke = require('./coke-coint-api.js');
 
 // controller
 var controller = botkit.slackbot({
@@ -21,4 +21,9 @@ var bot = controller.spawn({
 // say hi (test)
 controller.hears('hi', ['direct_message', 'mention', 'ambient'], function (bot, message) {
     bot.reply(message, 'hi');
+});
+
+controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
+    var response = coke.get();
+    bot.reply(message, response);
 });

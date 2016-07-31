@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/daikingca2/coke-point-checker#readme",
   "dependencies": {
-    "botkit": "^0.2.2"
+    "botkit": "^0.2.2",
+    "cheerio": "^0.20.0"
   }
 }
