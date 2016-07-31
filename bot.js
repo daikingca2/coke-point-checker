@@ -49,6 +49,6 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
         }
     }
     else {
-        bot.reply(message, 'まっちしませんでした');
+        return;
     }
 });
