@@ -43,10 +43,10 @@ controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot
 
 controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function (bot, message) {
     if (message.text.substring(0,10) === message.match[0]) {
-        var res_str = 'まっちした:' + message.match;
+        var res_str = 'まっちした:' + message.match[0];
         bot.reply(message, res_str);
     }
     else {
-        return;
+        bot.reply(message, 'まっちしませんでした');
     }
 });
