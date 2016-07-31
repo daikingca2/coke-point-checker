@@ -31,3 +31,7 @@ exports.get = request(options, function (error, response, body) {
         return JSON.stringify(respons_array);
     }
 });
+
+exports.test = function() {
+    return "hoge";
+}

@@ -35,5 +35,5 @@ controller.hears('get', ['direct_message', 'mention', 'ambient'], function (bot,
 // });
 
 controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    bot.reply(message, coke.get());
+    bot.reply(message, coke.test());
 });
