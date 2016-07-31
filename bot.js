@@ -29,7 +29,11 @@ controller.hears('get', ['direct_message', 'mention', 'ambient'], function (bot,
     bot.reply(message, response);
 });
 
+// controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
+//     var response = coke.get();
+//     bot.reply(message, response);
+// });
+
 controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    var response = coke.get();
-    bot.reply(message, response);
+    bot.reply(message, coke.get());
 });
