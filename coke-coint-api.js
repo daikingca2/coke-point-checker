@@ -13,7 +13,7 @@ var options = { method: 'POST',
     form: { cardnumber: '0001323337' } };
 
 // implementation for request
-exports.get = request(options, function (error, response, body) {
+module.exports.get = request(options, function (error, response, body) {
 
     var respons_array = { count_point: '',
                           count_totalpoint: '',
@@ -32,6 +32,6 @@ exports.get = request(options, function (error, response, body) {
     }
 });
 
-exports.test = function() {
+module.exports.test = function() {
     return "hoge";
 }
