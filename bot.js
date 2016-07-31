@@ -32,10 +32,10 @@ controller.hears('get', ['direct_message', 'mention', 'ambient'], function (bot,
 controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
     var pointcard_number = '0001323337';
     coke.get(pointcard_number).then(function onFuifilled(value) {
-        var res = '>ポイント数: ' + String(value.count_point)
-                    + '\n' + '>総ポイント数: ' + '\n' + String(value.count_totalpoint)
-                    + '\n' + '>クーポン数: ' + String(value.count_coupon);
-        bot.reply(message, value);
+        var res = '>ポイント数: ' + String(value.count_point) + '\n'
+                     + '>総ポイント数: ' + String(value.count_totalpoint) + '\n'
+                     + '>クーポン数: ' + String(value.count_coupon);
+        bot.reply(message, res);
     }).catch(function onRejected(error) {
         bot.reply(message, error);
     })

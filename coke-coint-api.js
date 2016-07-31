@@ -22,14 +22,14 @@ module.exports.get = function(number) {
             };
 
             if (error) {
-                reject(JSON.stringify(respons_array));
+                reject(respons_array);
             }
             else {
                 var parsed_respons = cheerio.load(body);
                 respons_array.count_point = Number(parsed_respons("#count_point").text());
                 respons_array.count_totalpoint = Number(parsed_respons("#count_totalpoint span").text());
                 respons_array.count_coupon = Number(parsed_respons("#count_coupon").text());
-                resolve(JSON.stringify(respons_array));
+                resolve(respons_array);
             }
         });
     });
