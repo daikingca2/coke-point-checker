@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daikingca2/azure-botkit-test.git"
+    "url": "git+https://github.com/daikingca2/coke-point-checker.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daikingca2/azure-botkit-test/issues"
+    "url": "https://github.com/daikingca2/coke-point-checker/issues"
   },
-  "homepage": "https://github.com/daikingca2/azure-botkit-test#readme",
+  "homepage": "https://github.com/daikingca2/coke-point-checker#readme",
   "dependencies": {
     "botkit": "^0.2.2"
   }
