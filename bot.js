@@ -33,7 +33,7 @@ controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot
     var pointcard_number = '0001323337';
     coke.get(pointcard_number).then(function onFuifilled(value) {
         var res = value.count_point;
-        bot.reply(message, res);
+        bot.reply(message, value.count_point);
     }).catch(function onRejected(error) {
         bot.reply(message, error);
     })
