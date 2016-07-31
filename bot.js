@@ -23,6 +23,12 @@ controller.hears('hi', ['direct_message', 'mention', 'ambient'], function (bot, 
     bot.reply(message, 'hi');
 });
 
+// response test
+controller.hears('get', ['direct_message', 'mention', 'ambient'], function (bot, message) {
+    var response = 'res';
+    bot.reply(message, response);
+});
+
 controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
     var response = coke.get();
     bot.reply(message, response);
