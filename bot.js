@@ -42,5 +42,5 @@ controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot
 });
 
 controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    bot.reply(message, JSON.stringify(message);
+    bot.reply(message, JSON.stringify(message));
 });
