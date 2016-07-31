@@ -1,0 +1,23 @@
+{
+  "name": "coke-point-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daikingca2/azure-botkit-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daikingca2/azure-botkit-test/issues"
+  },
+  "homepage": "https://github.com/daikingca2/azure-botkit-test#readme",
+  "dependencies": {
+    "botkit": "^0.2.2"
+  }
+}
