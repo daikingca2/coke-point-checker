@@ -35,7 +35,7 @@ controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot
         var res = '>ポイント数: ' + String(value.count_point)
                     + '\n' + '>総ポイント数: ' + '\n' + String(value.count_totalpoint)
                     + '\n' + '>クーポン数: ' + String(value.count_coupon);
-        bot.reply(message, res);
+        bot.reply(message, value);
     }).catch(function onRejected(error) {
         bot.reply(message, error);
     })
