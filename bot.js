@@ -53,6 +53,7 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
             throw message_validation_error;
         }
     } catch (e) {
+            bot.reply(message, 'えらー');
         if (e.message !== '') {
             bot.reply(message, e.message);
         }
