@@ -32,24 +32,29 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
                                      + '>クーポン数: ' + String(value.count_coupon);
                         bot.reply(message, res);
                     }
+                    else {
+                        // validation error
+                        var validation_error = new Error();
+                        validation_error.message = '';
+                        throw validation_error;
+                    }
                 }).catch(function onRejected(error) {
                     // api error
                     var api_error = new Error();
                     api_error.message = '入力されたカード番号は使われていませんノ';
                     throw api_error;
-                })
+                });
             }
         }
         else {
             // validation error
-            var validation_error = new Error();
-            validation_error.message = '';
-            throw validation_error;
-
+            var message_validation_error = new Error();
+            message_validation_error.message = '';
+            throw message_validation_error;
         }
     } catch (e) {
         if (e.message !== '') {
-            bot.reply(message, api_error_message);
+            bot.reply(message, e.message);
         }
         else {
             return;
