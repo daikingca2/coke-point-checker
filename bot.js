@@ -26,7 +26,7 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
             if (message.text.length == 10) {
                 // call api
                 coke.get(message.text).then(function onFuifilled(value) {
-                    if (value.count_point !== '' || value.count_totalpoint !== '' || value.count_coupon !== '') {
+                    if (value.count_point !== '0' || value.count_totalpoint !== '0' || value.count_coupon !== '0') {
                         var res = '>ポイント数: ' + String(value.count_point) + '\n'
                                      + '>総ポイント数: ' + String(value.count_totalpoint) + '\n'
                                      + '>クーポン数: ' + String(value.count_coupon);
