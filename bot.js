@@ -54,4 +54,5 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
         else {
             return;
         }
+    }
 });
