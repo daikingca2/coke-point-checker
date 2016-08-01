@@ -34,7 +34,3 @@ module.exports.get = function(number) {
         });
     });
 }
-
-module.exports.test = function() {
-    return "hoge";
-}

@@ -18,34 +18,21 @@ var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
-// say hi (test)
-controller.hears('hi', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    bot.reply(message, 'hi');
-});
-
-// response test
-controller.hears('get', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    var response = 'res';
-    bot.reply(message, response);
-});
-
-controller.hears('coke', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    var pointcard_number = '0001323337';
-    coke.get(pointcard_number).then(function onFuifilled(value) {
-        var res = '>ポイント数: ' + String(value.count_point) + '\n'
-                     + '>総ポイント数: ' + String(value.count_totalpoint) + '\n'
-                     + '>クーポン数: ' + String(value.count_coupon);
-        bot.reply(message, res);
-    }).catch(function onRejected(error) {
-        bot.reply(message, error);
-    })
-});
-
+// main hears function
 controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function (bot, message) {
+    // validation
     if (message.text.substring(0,10) === message.match[0]) {
         if (message.text.length == 10) {
-            var res_str = 'まっちした:' + message.match[0];
-            bot.reply(message, res_str);
+            // call api
+            coke.get(message.text).then(function onFuifilled(value) {
+                var res = '>ポイント数: ' + String(value.count_point) + '\n'
+                             + '>総ポイント数: ' + String(value.count_totalpoint) + '\n'
+                             + '>クーポン数: ' + String(value.count_coupon);
+                bot.reply(message, res);
+            }).catch(function onRejected(error) {
+                var api_error_message = '入力されたカード番号は使われていませんノ';
+                bot.reply(message, api_error_message);
+            })
         }
     }
     else {
