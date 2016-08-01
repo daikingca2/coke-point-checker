@@ -20,22 +20,38 @@ var bot = controller.spawn({
 
 // main hears function
 controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function (bot, message) {
-    // validation
-    if (message.text.substring(0,10) === message.match[0]) {
-        if (message.text.length == 10) {
-            // call api
-            coke.get(message.text).then(function onFuifilled(value) {
-                var res = '>ポイント数: ' + String(value.count_point) + '\n'
-                             + '>総ポイント数: ' + String(value.count_totalpoint) + '\n'
-                             + '>クーポン数: ' + String(value.count_coupon);
-                bot.reply(message, res);
-            }).catch(function onRejected(error) {
-                var api_error_message = '入力されたカード番号は使われていませんノ';
-                bot.reply(message, api_error_message);
-            })
+    try {
+        // validation
+        if (message.text.substring(0,10) === message.match[0]) {
+            if (message.text.length == 10) {
+                // call api
+                coke.get(message.text).then(function onFuifilled(value) {
+                    if (value.count_point !== '' || value.count_totalpoint !== '' || value.count_coupon !== '') {
+                        var res = '>ポイント数: ' + String(value.count_point) + '\n'
+                                     + '>総ポイント数: ' + String(value.count_totalpoint) + '\n'
+                                     + '>クーポン数: ' + String(value.count_coupon);
+                        bot.reply(message, res);
+                    }
+                }).catch(function onRejected(error) {
+                    // api error
+                    var api_error = new Error();
+                    api_error.message = '入力されたカード番号は使われていませんノ';
+                    throw api_error;
+                })
+            }
         }
-    }
-    else {
-        return;
-    }
+        else {
+            // validation error
+            var validation_error = new Error();
+            validation_error.message = '';
+            throw validation_error;
+
+        }
+    } catch (e) {
+        if (e.message !== '') {
+            bot.reply(message, api_error_message);
+        }
+        else {
+            return;
+        }
 });
