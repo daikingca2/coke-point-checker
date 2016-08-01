@@ -34,12 +34,14 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
                     }
                     else {
                         // validation error
+                        bot.reply(message, 'vえらー');
                         var validation_error = new Error();
                         validation_error.message = '入力されたカード番号は使われていません:scream:';
                         throw validation_error;
                     }
                 }).catch(function onRejected(error) {
                     // api error
+                    bot.reply(message, 'aえらー');
                     var api_error = new Error();
                     api_error.message = 'API ERROR:exclamation:';
                     throw api_error;
@@ -48,6 +50,7 @@ controller.hears('[0-9]{10}', ['direct_message', 'mention', 'ambient'], function
         }
         else {
             // validation error
+            bot.reply(message, 'mえらー');
             var message_validation_error = new Error();
             message_validation_error.message = '';
             throw message_validation_error;
